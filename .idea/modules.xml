@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Animations/Animations.iml" filepath="$PROJECT_DIR$/Animations/Animations.iml" />
       <module fileurl="file://$PROJECT_DIR$/Colors/Colors.iml" filepath="$PROJECT_DIR$/Colors/Colors.iml" />
       <module fileurl="file://$PROJECT_DIR$/LEDObjects/LEDObjects.iml" filepath="$PROJECT_DIR$/LEDObjects/LEDObjects.iml" />
       <module fileurl="file://$PROJECT_DIR$/randomAnimations.iml" filepath="$PROJECT_DIR$/randomAnimations.iml" />

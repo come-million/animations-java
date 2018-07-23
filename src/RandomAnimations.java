@@ -16,6 +16,8 @@ public class RandomAnimations {
         final Network network = new Network();
         network.configure();
 
+        AnimationIfc damka = new AnimationDamka();
+
         int hsbI;
         HSBColor hsbArr[] = m_randomPixels.GetAllPixels();
 
@@ -26,7 +28,7 @@ public class RandomAnimations {
                 for (int stripI = 0; stripI  < strandsPerController; stripI++) {
 
                     for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
-                        hsbArr[hsbI].hue = pixelI / 50.0;
+                        damka.setHSBColor(hsbArr[hsbI], controllerI, stripI, pixelI);
                         hsbI++;
                         rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
                     }
