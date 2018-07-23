@@ -103,9 +103,10 @@ public class RandomAnimations {
     }
 
     void initAnimations() {
-        m_an = new AnimationIfc[2];
-        m_an[0] = new AnimationDamka();
-        m_an[1] = new AnimationRandomHue(totalPixels);
+        m_an = new AnimationIfc[3];
+        m_an[0] = new AnimationSingleColor();
+        m_an[1] = new AnimationDamka();
+        m_an[2] = new AnimationRandomHue(totalPixels);
     }
 
     RandomPixels m_randomPixels[] = new RandomPixels[] {new RandomPixels(totalPixels), new RandomPixels(totalPixels)};
