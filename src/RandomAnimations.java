@@ -4,12 +4,10 @@ public class RandomAnimations {
     static int numberOfControllers = 4;
     static int strandsPerController = 40;
     static int pixelsPerStrand = 250;
-    static int TotalPixelsInStrand = pixelsPerStrand + 1 ;
-    static int totalFixels = numberOfControllers * strandsPerController * TotalPixelsInStrand;
+    static int totalPixelsInStrand = pixelsPerStrand + 1 ;
+    static int totalFixels = numberOfControllers * strandsPerController * totalPixelsInStrand;
 
     public static void run() throws InterruptedException {
-
-        System.out.println("hello1");
 
         intRGBArrays();
         initAnimations();
@@ -46,8 +44,8 @@ public class RandomAnimations {
             for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
                 for (int stripI = 0; stripI  < strandsPerController; stripI++) {
 
-                    for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
-                        m_an[anI].setHSBColor(hsbArr[hsbI], controllerI, stripI, pixelI, timePercent);
+                    for(int pixelI = 0; pixelI < totalPixelsInStrand; pixelI++) {
+                        m_an[anI].setHSBColor(hsbArr[hsbI], hsbI, controllerI, stripI, pixelI, timePercent);
                         hsbI++;
                         rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
                     }
@@ -63,7 +61,7 @@ public class RandomAnimations {
         int hsbI = 0;
         for (int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
             for (int stripI = 0; stripI < strandsPerController; stripI++) {
-                for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
+                for(int pixelI = 0; pixelI < totalPixelsInStrand; pixelI++) {
                     hsbArr[hsbI].toRGBColor(rgbArrays[controllerI][stripI][pixelI]);
                     hsbI++;
                 }
@@ -74,7 +72,7 @@ public class RandomAnimations {
     static void intRGBArrays() {
         for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
             for (int stripI = 0; stripI < strandsPerController; stripI++) {
-                for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
+                for(int pixelI = 0; pixelI < totalPixelsInStrand; pixelI++) {
                     rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
                 }
             }
@@ -83,11 +81,11 @@ public class RandomAnimations {
 
     static void initAnimations() {
         m_an = new AnimationIfc[1];
-        m_an[0] = new AnimationDamka();
+        m_an[0] = new AnimationRandomHue(totalFixels);
     }
 
     static RandomPixels m_randomPixels = new RandomPixels(totalFixels);
-    static RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][TotalPixelsInStrand];
+    static RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][totalPixelsInStrand];
     static double animationLoopTimeMs = 5.0 * 1000.0;
     static AnimationIfc m_an[];
 }
