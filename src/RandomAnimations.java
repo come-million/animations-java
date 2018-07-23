@@ -16,34 +16,42 @@ public class RandomAnimations {
         final Network network = new Network();
         network.configure();
 
-        AnimationIfc damka = new AnimationDamka();
-
-        int hsbI;
-        HSBColor hsbArr[] = m_randomPixels.GetAllPixels();
+        AnimationIfc damka;
 
         while (true) {
 
-            hsbI = 0;
-            for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
-                for (int stripI = 0; stripI  < strandsPerController; stripI++) {
+            long currTime = System.currentTimeMillis();
+            double timePercent = (currTime % animationLoopTimeMs) / animationLoopTimeMs;
 
-                    for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
-                        damka.setHSBColor(hsbArr[hsbI], controllerI, stripI, pixelI);
-                        hsbI++;
-                        rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
-                    }
-                }
-            }
-
+            applyAnimation(timePercent);
             UpdateRGBColors();
 
-            for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
+            for(int controllerI = 0; controllerI < 1; controllerI++) {
                 for (int stripI = 0; stripI  < strandsPerController; stripI++) {
-                    network.addSegment("test", rgbArrays[controllerI][stripI] , stripI , 0);
+                    network.addSegment("test", rgbArrays[controllerI][stripI], stripI , 0);
                 }
             }
             network.send();
-            Thread.sleep(30);
+            Thread.sleep(10);
+        }
+    }
+
+    static void applyAnimation(double timePercent) {
+
+        HSBColor hsbArr[] = m_randomPixels.GetAllPixels();
+
+        int hsbI;
+        hsbI = 0;
+
+        for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
+            for (int stripI = 0; stripI  < strandsPerController; stripI++) {
+
+                for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
+                    m_damka.setHSBColor(hsbArr[hsbI], controllerI, stripI, pixelI, timePercent);
+                    hsbI++;
+                    rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
+                }
+            }
         }
     }
 
@@ -74,4 +82,6 @@ public class RandomAnimations {
 
     static RandomPixels m_randomPixels = new RandomPixels(totalFixels);
     static RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][TotalPixelsInStrand];
+    static double animationLoopTimeMs = 5.0 * 1000.0;
+    static AnimationIfc m_damka = new AnimationDamka();
 }
