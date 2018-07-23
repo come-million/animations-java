@@ -1,13 +1,13 @@
 
 public class RandomAnimations {
 
-    static int numberOfControllers = 4;
-    static int strandsPerController = 40;
-    static int pixelsPerStrand = 250;
-    static int totalPixelsInStrand = pixelsPerStrand + 1 ;
-    static int totalPixels = numberOfControllers * strandsPerController * totalPixelsInStrand;
+    int numberOfControllers = 4;
+    int strandsPerController = 40;
+    int pixelsPerStrand = 250;
+    int totalPixelsInStrand = pixelsPerStrand + 1 ;
+    int totalPixels = numberOfControllers * strandsPerController * totalPixelsInStrand;
 
-    public static void run() throws InterruptedException {
+    public void run() throws InterruptedException {
 
         intRGBArrays();
         initAnimations();
@@ -21,8 +21,9 @@ public class RandomAnimations {
             double timePercent = (currTime % animationLoopTimeMs) / animationLoopTimeMs;
 
             checkForAnChange(currTime);
-            applyAnimation(timePercent);
-            UpdateRGBColors();
+            applyAnimation(timePercent, currentAnIndex, 0);
+            applyAnimation(timePercent, prevAnIndex, 1);
+            UpdateRGBColors(currTime);
 
             for(int controllerI = 0; controllerI < 1; controllerI++) {
                 for (int stripI = 0; stripI  < strandsPerController; stripI++) {
@@ -34,16 +35,17 @@ public class RandomAnimations {
         }
     }
 
-    static void checkForAnChange(long currTime) {
+    void checkForAnChange(long currTime) {
         if(currTime - m_lastChangeTime > m_currentAnimationLengthMs) {
+            prevAnIndex = currentAnIndex;
             currentAnIndex = (currentAnIndex + 1) % m_an.length;
             m_lastChangeTime = currTime;
         }
     }
 
-    static void applyAnimation(double timePercent) {
+    void applyAnimation(double timePercent, int anIndex, int ledObjectIndex) {
 
-        HSBColor hsbArr[] = m_randomPixels.GetAllPixels();
+        HSBColor hsbArr[] = m_randomPixels[ledObjectIndex].GetAllPixels();
 
         int hsbI;
         hsbI = 0;
@@ -52,30 +54,45 @@ public class RandomAnimations {
             for (int stripI = 0; stripI  < strandsPerController; stripI++) {
 
                 for(int pixelI = 0; pixelI < totalPixelsInStrand; pixelI++) {
-                    m_an[currentAnIndex].setHSBColor(hsbArr[hsbI], hsbI, controllerI, stripI, pixelI, timePercent);
+                    m_an[anIndex].setHSBColor(hsbArr[hsbI], hsbI, controllerI, stripI, pixelI, timePercent);
                     hsbI++;
-                    rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
                 }
             }
         }
     }
 
-    static void UpdateRGBColors() {
+    void UpdateRGBColors(long currTime) {
 
-        HSBColor hsbArr[] = m_randomPixels.GetAllPixels();
+        double amount1 = 1.0;
+        double amount2 = 0.0;
+
+        long msSinceLastChange = currTime - m_lastChangeTime;
+        if(msSinceLastChange < m_fadeAnimationsTime) {
+            amount1 = msSinceLastChange / (double)m_fadeAnimationsTime;
+            amount2 = 1.0 - amount1;
+        }
+
+        HSBColor currHsbArr[] = m_randomPixels[0].GetAllPixels();
+        HSBColor prevHsbArr[] = m_randomPixels[1].GetAllPixels();
+
+        // create once to reduce memory usage
+        RGBColor currRGB = new RGBColor();
+        RGBColor prevRGB = new RGBColor();
 
         int hsbI = 0;
         for (int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
             for (int stripI = 0; stripI < strandsPerController; stripI++) {
                 for(int pixelI = 0; pixelI < totalPixelsInStrand; pixelI++) {
-                    hsbArr[hsbI].toRGBColor(rgbArrays[controllerI][stripI][pixelI]);
+                    currHsbArr[hsbI].toRGBColor(currRGB);
+                    prevHsbArr[hsbI].toRGBColor(prevRGB);
+                    rgbArrays[controllerI][stripI][pixelI].mixTwoColors(currRGB, amount1, prevRGB, amount2);
                     hsbI++;
                 }
             }
         }
     }
 
-    static void intRGBArrays() {
+    void intRGBArrays() {
         for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
             for (int stripI = 0; stripI < strandsPerController; stripI++) {
                 for(int pixelI = 0; pixelI < totalPixelsInStrand; pixelI++) {
@@ -85,18 +102,20 @@ public class RandomAnimations {
         }
     }
 
-    static void initAnimations() {
+    void initAnimations() {
         m_an = new AnimationIfc[2];
         m_an[0] = new AnimationDamka();
         m_an[1] = new AnimationRandomHue(totalPixels);
     }
 
-    static RandomPixels m_randomPixels = new RandomPixels(totalPixels);
-    static RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][totalPixelsInStrand];
-    static double animationLoopTimeMs = 5.0 * 1000.0;
-    static long m_currentAnimationLengthMs = 10 * 1000;
+    RandomPixels m_randomPixels[] = new RandomPixels[] {new RandomPixels(totalPixels), new RandomPixels(totalPixels)};
+    RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][totalPixelsInStrand];
+    double animationLoopTimeMs = 5.0 * 1000.0;
+    long m_currentAnimationLengthMs = 5 * 1000;
+    long m_fadeAnimationsTime = 1 * 1000;
 
-    static AnimationIfc m_an[];
-    static int currentAnIndex = 0;
-    static long m_lastChangeTime;
+    AnimationIfc m_an[];
+    int currentAnIndex = 0;
+    int prevAnIndex = 0;
+    long m_lastChangeTime;
 }
