@@ -12,11 +12,10 @@ public class RandomAnimations {
         System.out.println("hello1");
 
         intRGBArrays();
+        initAnimations();
 
         final Network network = new Network();
         network.configure();
-
-        AnimationIfc damka;
 
         while (true) {
 
@@ -43,13 +42,15 @@ public class RandomAnimations {
         int hsbI;
         hsbI = 0;
 
-        for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
-            for (int stripI = 0; stripI  < strandsPerController; stripI++) {
+        for(int anI = 0; anI < m_an.length; anI++) {
+            for(int controllerI = 0; controllerI < numberOfControllers; controllerI++) {
+                for (int stripI = 0; stripI  < strandsPerController; stripI++) {
 
-                for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
-                    m_damka.setHSBColor(hsbArr[hsbI], controllerI, stripI, pixelI, timePercent);
-                    hsbI++;
-                    rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
+                    for(int pixelI = 0; pixelI < TotalPixelsInStrand; pixelI++) {
+                        m_an[anI].setHSBColor(hsbArr[hsbI], controllerI, stripI, pixelI, timePercent);
+                        hsbI++;
+                        rgbArrays[controllerI][stripI][pixelI] = new RGBColor();
+                    }
                 }
             }
         }
@@ -80,8 +81,13 @@ public class RandomAnimations {
         }
     }
 
+    static void initAnimations() {
+        m_an = new AnimationIfc[1];
+        m_an[0] = new AnimationDamka();
+    }
+
     static RandomPixels m_randomPixels = new RandomPixels(totalFixels);
     static RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][TotalPixelsInStrand];
     static double animationLoopTimeMs = 5.0 * 1000.0;
-    static AnimationIfc m_damka = new AnimationDamka();
+    static AnimationIfc m_an[];
 }
