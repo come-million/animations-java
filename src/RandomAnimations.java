@@ -104,16 +104,17 @@ public class RandomAnimations {
 
     void initAnimations() {
         m_an = new AnimationIfc[5];
-        m_an[0] = new AnimationSingleColor();
-        m_an[1] = new AnimationDamka();
-        m_an[2] = new AnimationRandomHue(totalPixels);
-        m_an[3] = new AnimationWaves();
-        m_an[4] = new AnimationFoox();
+        m_an[1] = new AnimationSleepy(totalPixels);
+        m_an[0] = new AnimationSleepy(totalPixels);
+        m_an[2] = new AnimationSleepy(totalPixels);
+        m_an[3] = new AnimationSleepy(totalPixels);
+        m_an[4] = new AnimationSleepy(totalPixels);
+
     }
 
     RandomPixels m_randomPixels[] = new RandomPixels[] {new RandomPixels(totalPixels), new RandomPixels(totalPixels)};
     RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][totalPixelsInStrand];
-    double animationLoopTimeMs = 5.0 * 1000.0;
+    double animationLoopTimeMs = 10.0 * 1000.0;
     long m_currentAnimationLengthMs = 5 * 1000;
     long m_fadeAnimationsTime = 1 * 1000;
 
