@@ -13,7 +13,7 @@ public class AnimationRandomHue extends AnimationIfc {
     }
 
     @Override
-    void setHSBColor(HSBColor c, int globalI, int controllerI, int stripI, int pixelI, double timePercent) {
+    void setHSBColor(HSBColor c, int globalI, int controllerI, int stripI, int PixelI, double timePercent, double absTimeSeconds) {
         c.hue = hueOffsets[globalI] + timePercent;
     }
 

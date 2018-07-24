@@ -3,7 +3,7 @@ import java.lang.*;
 public class AnimationFoox extends AnimationIfc {
 
     @Override
-    void setHSBColor(HSBColor c, int globalI, int controllerI, int stripI, int pixelI, double timePercent) {
+    void setHSBColor(HSBColor c, int globalI, int controllerI, int stripI, int pixelI, double timePercent, double absTimeSeconds) {
         // c.brightness = Math.sin(timePercent * Math.PI);
         c.brightness = 0.6;
         c.hue = getHue(pixelI, timePercent);

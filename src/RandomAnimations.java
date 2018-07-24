@@ -18,11 +18,12 @@ public class RandomAnimations {
         while (true) {
 
             long currTime = System.currentTimeMillis();
+            double absTimeSeconds = currTime / 1000.0;
             double timePercent = (currTime % animationLoopTimeMs) / animationLoopTimeMs;
 
             checkForAnChange(currTime);
-            applyAnimation(timePercent, currentAnIndex, 0);
-            applyAnimation(timePercent, prevAnIndex, 1);
+            applyAnimation(timePercent, absTimeSeconds, currentAnIndex, 0);
+            applyAnimation(timePercent, absTimeSeconds, prevAnIndex, 1);
             UpdateRGBColors(currTime);
 
             for(int controllerI = 0; controllerI < 1; controllerI++) {
@@ -43,7 +44,7 @@ public class RandomAnimations {
         }
     }
 
-    void applyAnimation(double timePercent, int anIndex, int ledObjectIndex) {
+    void applyAnimation(double timePercent, double absTimeSeconds, int anIndex, int ledObjectIndex) {
 
         HSBColor hsbArr[] = m_randomPixels[ledObjectIndex].GetAllPixels();
 
@@ -54,7 +55,7 @@ public class RandomAnimations {
             for (int stripI = 0; stripI  < strandsPerController; stripI++) {
 
                 for(int pixelI = 0; pixelI < totalPixelsInStrand; pixelI++) {
-                    m_an[anIndex].setHSBColor(hsbArr[hsbI], hsbI, controllerI, stripI, pixelI, timePercent);
+                    m_an[anIndex].setHSBColor(hsbArr[hsbI], hsbI, controllerI, stripI, pixelI, timePercent, absTimeSeconds);
                     hsbI++;
                 }
             }
@@ -103,21 +104,22 @@ public class RandomAnimations {
     }
 
     void initAnimations() {
-        m_an = new AnimationIfc[5];
-        m_an[1] = new AnimationSleepy(totalPixels);
-        m_an[0] = new AnimationSleepy(totalPixels);
-        m_an[2] = new AnimationSleepy(totalPixels);
-        m_an[3] = new AnimationSleepy(totalPixels);
-        m_an[4] = new AnimationSleepy(totalPixels);
+        m_an = new AnimationIfc[7];
+        m_an[0] = new AnimationSingleColor();
+        m_an[1] = new AnimationDamka();
+        m_an[2] = new AnimationRandomHue(totalPixels);
+        m_an[3] = new AnimationWaves();
+        m_an[4] = new AnimationFoox();
+        m_an[5] = new AnimationBreath(totalPixels);
+        m_an[6] = new AnimationSleepy(totalPixels);
 
     }
 
     RandomPixels m_randomPixels[] = new RandomPixels[] {new RandomPixels(totalPixels), new RandomPixels(totalPixels)};
     RGBColor rgbArrays[][][] = new RGBColor[numberOfControllers][strandsPerController][totalPixelsInStrand];
     double animationLoopTimeMs = 10.0 * 1000.0;
-    long m_currentAnimationLengthMs = 5 * 1000;
-    long m_fadeAnimationsTime = 1 * 1000;
-
+    long m_currentAnimationLengthMs = 20 * 1000;
+    long m_fadeAnimationsTime = 2 * 1000;
     AnimationIfc m_an[];
     int currentAnIndex = 0;
     int prevAnIndex = 0;

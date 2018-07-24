@@ -14,7 +14,7 @@ public class AnimationSleepy extends AnimationIfc {
     }
 
     @Override
-    void setHSBColor(HSBColor c, int globalI, int controllerI, int stripI, int pixelI, double timePercent) {
+    void setHSBColor(HSBColor c, int globalI, int controllerI, int stripI, int pixelI, double timePercent, double absTimeSeconds) {
         c.brightness = 0.5;
         c.hue = generateRandomHue(pixelI, timePercent);
         c.saturation = 0.7;
