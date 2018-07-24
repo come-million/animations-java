@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="363e1e28-d796-4b92-9d13-cdd22ff1502e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Animations/src/AnimationSingleColor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/randomAnimations/RandomAnimations.class" afterPath="$PROJECT_DIR$/out/production/randomAnimations/RandomAnimations.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Animations/src/AnimationBreath.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/randomAnimations/RandomAnimations.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Animations/src/AnimationDamka.java" afterPath="$PROJECT_DIR$/Animations/src/AnimationDamka.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Animations/src/AnimationIfc.java" afterPath="$PROJECT_DIR$/Animations/src/AnimationIfc.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Animations/src/AnimationRandomHue.java" afterPath="$PROJECT_DIR$/Animations/src/AnimationRandomHue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Animations/src/AnimationSingleColor.java" afterPath="$PROJECT_DIR$/Animations/src/AnimationSingleColor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RandomAnimations.java" afterPath="$PROJECT_DIR$/src/RandomAnimations.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,21 +27,6 @@
             <state relative-caret-position="85">
               <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RandomPixels.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LEDObjects/src/RandomPixels.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
-              <folding>
-                <element signature="e#184#185#0" expanded="true" />
-                <element signature="e#239#240#0" expanded="true" />
-                <element signature="e#293#294#0" expanded="true" />
-                <element signature="e#327#328#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -67,9 +56,21 @@
       <file leaf-file-name="RandomAnimations.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/RandomAnimations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="297">
+              <caret line="115" column="37" lean-forward="false" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnimationBreath.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Animations/src/AnimationBreath.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,8 +78,8 @@
       <file leaf-file-name="AnimationSingleColor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Animations/src/AnimationSingleColor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            <state relative-caret-position="51">
+              <caret line="3" column="128" lean-forward="false" selection-start-line="3" selection-start-column="128" selection-end-line="3" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -87,8 +88,8 @@
       <file leaf-file-name="AnimationRandomHue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Animations/src/AnimationRandomHue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="128" lean-forward="false" selection-start-line="15" selection-start-column="128" selection-end-line="15" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -98,7 +99,7 @@
         <entry file="file://$PROJECT_DIR$/Animations/src/AnimationIfc.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="55" lean-forward="false" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
+              <caret line="2" column="137" lean-forward="false" selection-start-line="2" selection-start-column="137" selection-end-line="2" selection-end-column="137" />
               <folding />
             </state>
           </provider>
@@ -107,8 +108,8 @@
       <file leaf-file-name="AnimationDamka.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Animations/src/AnimationDamka.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
+            <state relative-caret-position="85">
+              <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -146,6 +147,7 @@
       <find>ipAdd</find>
       <find>port</find>
       <find>10.0.0</find>
+      <find>animationLoopTimeMs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,12 +170,13 @@
         <option value="$PROJECT_DIR$/LEDObjects/src/RandomPixels.java" />
         <option value="$PROJECT_DIR$/Colors/src/HSBColor.java" />
         <option value="$PROJECT_DIR$/LEDObjects/src/LEDObject.java" />
-        <option value="$PROJECT_DIR$/Animations/src/AnimationIfc.java" />
-        <option value="$PROJECT_DIR$/Animations/src/AnimationDamka.java" />
-        <option value="$PROJECT_DIR$/Animations/src/AnimationRandomHue.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/Colors/src/RGBColor.java" />
+        <option value="$PROJECT_DIR$/Animations/src/AnimationIfc.java" />
+        <option value="$PROJECT_DIR$/Animations/src/AnimationRandomHue.java" />
         <option value="$PROJECT_DIR$/Animations/src/AnimationSingleColor.java" />
+        <option value="$PROJECT_DIR$/Animations/src/AnimationDamka.java" />
+        <option value="$PROJECT_DIR$/Animations/src/AnimationBreath.java" />
         <option value="$PROJECT_DIR$/src/RandomAnimations.java" />
       </list>
     </option>
@@ -338,7 +341,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32968238" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32968238" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -482,30 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Animations/src/AnimationIfc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="55" lean-forward="false" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Animations/src/AnimationDamka.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="46" lean-forward="false" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Animations/src/AnimationRandomHue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -532,18 +511,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Animations/src/AnimationIfc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="137" lean-forward="false" selection-start-line="2" selection-start-column="137" selection-end-line="2" selection-end-column="137" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Animations/src/AnimationRandomHue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="128" lean-forward="false" selection-start-line="15" selection-start-column="128" selection-end-line="15" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Animations/src/AnimationSingleColor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="51">
+          <caret line="3" column="128" lean-forward="false" selection-start-line="3" selection-start-column="128" selection-end-line="3" selection-end-column="128" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Animations/src/AnimationDamka.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Animations/src/AnimationBreath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="27" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RandomAnimations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="30" lean-forward="true" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        <state relative-caret-position="297">
+          <caret line="115" column="37" lean-forward="false" selection-start-line="115" selection-start-column="37" selection-end-line="115" selection-end-column="37" />
           <folding />
         </state>
       </provider>
